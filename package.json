@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-demo-official",
+  "version": "1.0.0",
+  "description": "NodeJS Demo Official - http://nodejs.cn/learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicweiyu/nodejs-demo-official.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vicweiyu/nodejs-demo-official/issues"
+  },
+  "homepage": "https://github.com/vicweiyu/nodejs-demo-official#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
