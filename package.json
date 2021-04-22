@@ -19,5 +19,11 @@
   "homepage": "https://github.com/vicweiyu/nodejs-demo-official#readme",
   "devDependencies": {
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "inquirer": "^8.0.0",
+    "minimist": "^1.2.5",
+    "progress": "^2.0.3"
   }
 }
