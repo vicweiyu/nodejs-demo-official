@@ -1,0 +1,9 @@
+ES6+
+HTML5
+CSS3
+TypeScript
+React
+NodeJS
+Webpack
+PWA
+AWS
