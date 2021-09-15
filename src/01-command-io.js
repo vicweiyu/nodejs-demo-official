@@ -1,40 +1,85 @@
-// node .\src\01-command-io.js --name=Victor --skill=NodeJS
+// node ./src/01-command-io.js --name=Victor --skill=NodeJS
 
 const fullArgs = process.argv;
 fullArgs.forEach((val, index) => {
   console.log(`Index:${index}, Value:${val}`);
 });
 
-const args1 = process.argv.slice(2);
-console.log(args1);
+const argv1 = process.argv.slice(2);
+console.log(argv1);
 
-const args2 = require('minimist')(process.argv.slice(2));
-console.log(args2['name'], args2['skill']);
+const argv2 = require('minimist')(process.argv.slice(2));
+console.log(argv2['name'], argv2['skill']);
 
-// console.log('%o', Number);
+let obj = {
+  a: 1,
+  b: 2,
+};
+console.log(obj);
+console.log('%s, %d, %i, %o', 'Hello', 1.23, 12.3, obj);
+
+console.log('********************');
+
+const s = 'NodeJS';
+console.count(s);
+console.count(s);
+
+const meausreFunc = (func) => {
+  console.time(func.name);
+  func();
+  console.timeEnd(func.name);
+};
+const func = () => {
+  console.log('TEST');
+};
+meausreFunc(func);
+
+console.log('********************');
 
 const chalk = require('chalk');
-console.log(chalk.yellow('Hello World!'));
+console.log(chalk.blue.bgYellowBright.bold('NestJS'));
 
 /*
 const ProgressBar = require('progress');
-const bar = new ProgressBar(':bar', { total: 10 });
-const timer = setInterval(() => {
-  bar.tick();
-  if (bar.complete) {
-    clearInterval(timer);
+const percent = new ProgressBar(':percent', { total: 10 });
+const intervalID = setInterval(() => {
+  percent.tick();
+  if (percent.complete) {
+    clearInterval(intervalID);
   }
-}, 100);
+}, 200);
 */
 
+console.log('********************');
+
+/*
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-readline.question('Who is hided in your heart? ', (name) => {
+readline.question('Who is hided in your heart?\n', (name) => {
   console.log(name);
   readline.close();
 });
+*/
+
+console.log('********************');
+
+/*
+const inquirer = require('inquirer');
+const questions = [
+  {
+    type: 'input',
+    name: 'name',
+    message: `What's your name`,
+  },
+];
+inquirer.prompt(questions).then((answers) => {
+  console.log(`Hello ${answers['name']}!`);
+});
+*/
+
+console.log('********************');
 
 const lib = require('./02-exports');
 console.log(lib.car);

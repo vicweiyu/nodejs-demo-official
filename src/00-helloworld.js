@@ -14,8 +14,23 @@ server.listen(port, host, () => {
   console.log('HTTP Server is running...');
 });
 
-console.log(process.env.NODE_ENV); // TODO
+// process.exitCode = 0;
+
+// console.log(`Run 'process.exit(0);'`);
+// process.exit(0);
+
+// npx cross-env NODE_ENV=development node 00-helloworld.js
+// export NODE_ENV=development && node 00-helloworld.js
+console.log(process.env.NODE_ENV);
+
+process.on('SIGTERM', () => {
+  server.close(() => {
+    console.log('HTTP Server is closed');
+  });
+});
 
 setTimeout(() => {
+  console.log('SIGTERM Start', process.pid);
   process.kill(process.pid, 'SIGTERM');
+  console.log('SIGTERM End');
 }, 10 * 1000);
