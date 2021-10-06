@@ -19,8 +19,8 @@ server.listen(port, host, () => {
 // console.log(`Run 'process.exit(0);'`);
 // process.exit(0);
 
-// npx cross-env NODE_ENV=development node 00-helloworld.js
-// export NODE_ENV=development && node 00-helloworld.js
+// npx cross-env NODE_ENV=development node src/00-helloworld.js
+// export NODE_ENV=development && node src/00-helloworld.js
 console.log(process.env.NODE_ENV);
 
 process.on('SIGTERM', () => {

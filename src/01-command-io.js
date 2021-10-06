@@ -1,7 +1,7 @@
-// node ./src/01-command-io.js --name=Victor --skill=NodeJS
+// node src/01-command-io.js --name=Victor --skill=NodeJS
 
-const fullArgs = process.argv;
-fullArgs.forEach((val, index) => {
+const fullArgv = process.argv;
+fullArgv.forEach((val, index) => {
   console.log(`Index:${index}, Value:${val}`);
 });
 
@@ -20,9 +20,10 @@ console.log('%s, %d, %i, %o', 'Hello', 1.23, 12.3, obj);
 
 console.log('********************');
 
-const s = 'NodeJS';
-console.count(s);
-console.count(s);
+const s1 = 'NodeJS';
+const s2 = 'NodeJS';
+console.count(s1);
+console.count(s2);
 
 const meausreFunc = (func) => {
   console.time(func.name);
@@ -69,7 +70,7 @@ console.log('********************');
 const inquirer = require('inquirer');
 const questions = [
   {
-    type: 'input',
+    type: 'password',
     name: 'name',
     message: `What's your name`,
   },

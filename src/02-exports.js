@@ -7,9 +7,10 @@ const f = () => {
   console.log('Hello NodeJS!');
 };
 
-// module.exports = car;
+// module.exports = {
+//   car,
+//   f,
+// };
 
-// module.exports.car = car;
-// module.exports.f = f;
 exports.car = car;
 exports.f = f;
