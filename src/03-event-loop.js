@@ -14,16 +14,16 @@ const nt2 = () => {
   console.log('nt 2');
 };
 
-let arr = [];
-
 const f = () => {
-  console.log('f');
+  foo();
 
   setImmediate(() => {
     console.log('setImmediate');
   });
 
-  setTimeout(foo, 0);
+  setTimeout(() => {
+    console.log('setTimeout');
+  }, 0);
 
   new Promise((resolve, reject) => {
     console.log('in Promise 1');
@@ -43,21 +43,39 @@ const f = () => {
   bar();
 };
 
-f();
+// f();
 
 console.log('********************');
 
+let arr = [];
+
 const f2 = () => {
   setTimeout(() => {
+    console.log(1);
     arr.push('setTimeout');
   }, 0);
+
   setImmediate(() => {
+    console.log(2);
     arr.push('setImmediate');
+  });
+
+  new Promise((resolve, reject) => {
+    resolve('Promise');
+  }).then((v) => {
+    console.log(3);
+    arr.push(v);
+  });
+
+  process.nextTick(() => {
+    console.log(4);
+    arr.push('nextTick');
   });
 };
 
+// f2();
 setTimeout(f2, 0);
 
 setTimeout(() => {
   console.log(arr);
-}, 100);
+}, 1000);
