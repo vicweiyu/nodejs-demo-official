@@ -1,7 +1,7 @@
 const doSthAsync = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('Resolve in Async');
+      resolve('resolve in Promise');
     }, 3 * 1000);
   });
 };
@@ -12,9 +12,9 @@ const doSth = async () => {
   console.log('b');
 };
 
-console.log('1');
+console.log(1);
 doSth();
-console.log('2');
+console.log(2);
 
 console.log('********************');
 

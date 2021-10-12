@@ -1,19 +1,14 @@
 const EventEmitter = require('events');
-const eventEmitter = new EventEmitter();
-eventEmitter.on('start', (p, ...others) => {
-  console.log(`on start - p: ${p}, others:`, ...others);
+const em = new EventEmitter();
+em.on('tigger', (p, ...others) => {
+  console.log(`on tigger: p:${p}, others:${others}`);
 });
 
-let timerID;
-let counter = 0;
-const f = () => {
-  timerID = setTimeout(f, 1000);
-
-  eventEmitter.emit('start', 'Hello', 'TS', 'NodeJS', 'React');
-  counter++;
-  if (counter >= 5) {
+let count = 0;
+const timerID = setInterval(() => {
+  em.emit('tigger', 'Hello', 'NodeJS', 'Express', 'Koa', 'NestJS');
+  count++;
+  if (count >= 5) {
     clearTimeout(timerID);
   }
-};
-
-f();
+}, 1000);
