@@ -12,7 +12,11 @@ const server = http.createServer((req, res) => {
 
   req.on('end', () => {
     console.log('in end');
-    console.log(JSON.parse(data));
+    try {
+      console.log(JSON.parse(data));
+    } catch (e) {
+      console.error(e);
+    }
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');

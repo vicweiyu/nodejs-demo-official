@@ -1,5 +1,5 @@
 const http = require('http');
-
+/*
 const options1 = {
   host: '127.0.0.1',
   port: 3000,
@@ -7,7 +7,7 @@ const options1 = {
   method: 'GET',
 };
 
-const reqGet = http.request(options1, (res) => {
+const httpGet = http.request(options1, (res) => {
   console.log(`Status Code: ${res.statusCode}, ${res.statusMessage}`);
 
   res.on('data', (data) => {
@@ -15,13 +15,13 @@ const reqGet = http.request(options1, (res) => {
   });
 });
 
-reqGet.on('error', console.log);
+httpGet.on('error', console.error);
 
-reqGet.end();
-
+httpGet.end();
+*/
 console.log('********************');
 
-const postDate = JSON.stringify({
+const postData = JSON.stringify({
   p: 'Hello TS!',
 });
 
@@ -32,7 +32,7 @@ const options2 = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Content-Length': postDate.length,
+    'Content-Length': postData.length,
   },
 };
 
@@ -44,6 +44,8 @@ const httpPost = http.request(options2, (res) => {
   });
 });
 
-httpPost.on('error', console.log);
+httpPost.on('error', console.error);
+
+httpPost.write(postData);
 
 httpPost.end();
