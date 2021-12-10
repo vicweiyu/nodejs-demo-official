@@ -14,6 +14,14 @@ const nt2 = () => {
   console.log('nt 2');
 };
 
+const nt3 = () => {
+  console.log('nt 3');
+};
+
+const nt4 = () => {
+  console.log('nt 4');
+};
+
 const f = () => {
   foo();
 
@@ -22,26 +30,29 @@ const f = () => {
   });
 
   setTimeout(() => {
-    console.log('setTimeout');
+    console.log('setTimeout'); // Message Queue, macro-task
   }, 0);
 
   new Promise((resolve, reject) => {
     console.log('in Promise 1');
-    resolve('after bar but before foo - a');
+    resolve('after bar but before setTimeout - a'); // Job Queue, micro-task
     console.log('in Promise 2');
   }).then(console.log);
 
   new Promise((resolve, reject) => {
     console.log('in Promise 3');
-    resolve('after bar but before foo - b');
+    resolve('after bar but before setTimeout - b'); // Job Queue, micro-task
     console.log('in Promise 4');
   }).then(console.log);
 
-  process.nextTick(nt1);
-  process.nextTick(nt2);
+  process.nextTick(nt1); // Job Queue, micro-task
+  process.nextTick(nt2); // Job Queue, micro-task
 
   bar();
 };
+
+// process.nextTick(nt3); // Job Queue, micro-task
+// process.nextTick(nt4); // Job Queue, micro-task
 
 // f();
 
