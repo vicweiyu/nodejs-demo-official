@@ -1,4 +1,5 @@
 const http = require('http');
+
 /*
 const options1 = {
   host: '127.0.0.1',
@@ -19,6 +20,7 @@ httpGet.on('error', console.error);
 
 httpGet.end();
 */
+
 console.log('********************');
 
 const postData = JSON.stringify({
@@ -39,7 +41,16 @@ const options2 = {
 const httpPost = http.request(options2, (res) => {
   console.log(`Status Code: ${res.statusCode}, ${res.statusMessage}`);
 
-  res.on('data', (data) => {
+  let data = '';
+
+  res.on('data', (chunk) => {
+    console.log('in res data');
+    data += chunk;
+    process.stdout.write(chunk + '\n');
+  });
+
+  res.on('end', () => {
+    console.log('in res end');
     process.stdout.write(data + '\n');
   });
 });
@@ -47,5 +58,4 @@ const httpPost = http.request(options2, (res) => {
 httpPost.on('error', console.error);
 
 httpPost.write(postData);
-
 httpPost.end();
