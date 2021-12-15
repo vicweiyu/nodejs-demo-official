@@ -12,11 +12,9 @@ fs.writeFile(filePath, 'New Content 1', (err) => {
 */
 
 /*
-try {
-  fs.writeFileSync(filePath, 'New Content 2');
-} catch (e) {
-  console.log(e);
-}
+fs.writeFile(filePath, 'New Content 2', { flag: 'w+' }, (err) => {
+  console.log(err);
+});
 */
 
 /*
@@ -27,8 +25,6 @@ try {
 }
 */
 
-try {
-  fs.appendFileSync(filePath, 'PMP\n');
-} catch (e) {
-  console.log(e);
-}
+fs.appendFile(filePath, 'CSM', (err) => {
+  console.log(err);
+});

@@ -4,21 +4,32 @@ const fsExtra = require('fs-extra');
 
 const dirName = 'public';
 
+fs.access(dirName, (err) => {
+  console.log('in access');
+  if (err) {
+    console.log(err);
+  }
+});
+
 if (fs.existsSync(dirName) && !fs.existsSync(path.join(dirName, 'tmp'))) {
-  fs.mkdirSync(path.join(dirName, 'tmp'));
+  try {
+    fs.mkdirSync(path.join(dirName, 'tmp'));
+  } catch (e) {
+    console.log(e);
+  }
 } else {
   console.log('tmp is existed under public folder');
 }
 
-let arr = fs.readdirSync(dirName);
-// console.log(arr);
-
+const arr = fs.readdirSync(dirName);
+console.log(arr);
 arr.forEach((item) => {
   const t = path.join(dirName, item);
-  console.log(fs.statSync(t).isFile() ? 'File:' : 'Dir :', path.resolve(t));
+  console.log(fs.statSync(t).isFile() ? 'File:' : 'Dir:', path.resolve(t));
 });
 
 setTimeout(() => {
+  console.log('in rename');
   try {
     fs.renameSync(path.join(dirName, 'tmp'), path.join(dirName, 'store'));
   } catch (e) {
@@ -29,7 +40,10 @@ setTimeout(() => {
 setTimeout(() => {
   /*
   fsExtra.remove(path.join(dirName, 'store'), (err) => {
-    console.log(err);
+    console.log('in remove');
+    if (err) {
+      console.log(err);
+    }
   });
   */
 
