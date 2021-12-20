@@ -4,7 +4,7 @@ const http = require('http');
 const server = http.createServer((req, res) => {
   /*
   fs.readFile('public/text.txt', (err, data) => {
-    if (err !== null) {
+    if (err) {
       console.log(err);
       return;
     }
@@ -23,5 +23,10 @@ server.listen(3000, '127.0.0.1', () => {
 
 setTimeout(() => {
   console.log('HTTP Server is closing...');
-  server.close();
+  server.close((err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log('HTTP Server is closed.');
+  });
 }, 10 * 1000);
