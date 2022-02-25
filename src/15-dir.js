@@ -37,6 +37,16 @@ setTimeout(() => {
   }
 }, 3 * 1000);
 
+const removeDir = async (dir) => {
+  try {
+    console.log('Remove Dir Start');
+    await fsExtra.remove(dir);
+    console.log('Remove Dir End');
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 setTimeout(() => {
   /*
   fsExtra.remove(path.join(dirName, 'store'), (err) => {
@@ -47,6 +57,7 @@ setTimeout(() => {
   });
   */
 
+  /*
   fsExtra
     .remove(path.join(dirName, 'store'))
     .then(() => {
@@ -55,4 +66,7 @@ setTimeout(() => {
     .catch((e) => {
       console.log(e);
     });
+  */
+
+  removeDir(path.join(dirName, 'store'));
 }, 5 * 1000);

@@ -6,6 +6,7 @@ console.log('1' + os.EOL + '2');
 
 console.log(os.arch());
 console.log(os.cpus());
+console.log(os.endianness());
 console.log(os.homedir());
 console.log(os.hostname());
 console.log(os.loadavg());
