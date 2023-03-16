@@ -7,24 +7,30 @@ const filePath = path.join(dirName, fileName);
 
 /*
 fs.writeFile(filePath, 'New Content 1', (err) => {
-  console.log(err);
+  if (err) {
+    console.log(err);
+  }
 });
 */
 
+fs.writeFile(filePath, 'JS', { flag: 'r+' }, (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
+
 /*
-fs.writeFile(filePath, 'New Content 2', { flag: 'w+' }, (err) => {
-  console.log(err);
+fs.writeFile(filePath, 'New Content 2', { flag: 'a+' }, (err) => {
+  if (err) {
+    console.log(err);
+  }
 });
 */
 
 /*
 try {
-  fs.writeFileSync(filePath, 'New Content 3', { flag: 'a+' });
+  fs.appendFileSync(filePath, 'CSM');
 } catch (e) {
   console.log(e);
 }
 */
-
-fs.appendFile(filePath, 'CSM', (err) => {
-  console.log(err);
-});

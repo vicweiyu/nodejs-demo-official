@@ -6,7 +6,7 @@ fullArgv.forEach((val, index) => {
 });
 
 const argv1 = process.argv.slice(2);
-console.log(argv1);
+console.log('🚀 ~ file: 01-command-io.js:9 ~ argv1:', argv1);
 
 const argv2 = require('minimist')(process.argv.slice(2));
 console.log(argv2['name'], argv2['skill']);
@@ -25,20 +25,26 @@ const s2 = 'NodeJS';
 console.count(s1);
 console.count(s2);
 
-const meausreFunc = (func) => {
+const meausreFunc = async (func) => {
   console.time(func.name);
-  func();
+  const result = await func();
+  console.log(result);
   console.timeEnd(func.name);
 };
-const func = () => {
-  console.log('TEST');
+
+const waitFunc = () => {
+  console.log('TEST START');
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('TEST END');
+    }, 5 * 1000);
+  });
 };
-meausreFunc(func);
+
+meausreFunc(waitFunc);
 
 console.log('********************');
-
-const chalk = require('chalk');
-console.log(chalk.blue.bgYellowBright.bold('NestJS'));
 
 /*
 const ProgressBar = require('progress');

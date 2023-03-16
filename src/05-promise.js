@@ -30,6 +30,7 @@ const p3 = new Promise((resolve, reject) => {
   console.log('P3 Start');
   setTimeout(() => {
     resolve('p3');
+    console.log('P3 End');
   }, 1 * 1000);
 });
 
@@ -37,6 +38,7 @@ const p4 = new Promise((resolve, reject) => {
   console.log('P4 Start');
   setTimeout(() => {
     resolve('p4');
+    console.log('P4 End');
   }, 3 * 1000);
 });
 

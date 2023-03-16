@@ -42,7 +42,6 @@ const httpPost = http.request(options2, (res) => {
   console.log(`Status Code: ${res.statusCode}, ${res.statusMessage}`);
 
   let data = '';
-
   res.on('data', (chunk) => {
     console.log('in res data');
     data += chunk;

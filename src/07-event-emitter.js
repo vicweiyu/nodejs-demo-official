@@ -2,18 +2,18 @@ const EventEmitter = require('events');
 
 /*
 const em = new EventEmitter();
-em.on('tigger', (p, ...others) => {
-  console.log(`on tigger: p:${p}, others:${others}`);
+em.on('trigger', (...params) => {
+  console.log(`on trigger: ${[...params].join(', ')}`);
 });
 
 let count = 0;
 const timerID = setInterval(() => {
-  em.emit('tigger', 'Hello', 'NodeJS', 'Express', 'Koa', 'NestJS');
+  em.emit('trigger', 'NodeJS', 'Express', 'Koa', 'NestJS', 'Serverless');
   count++;
   if (count >= 5) {
     clearInterval(timerID);
   }
-}, 1000);
+}, 1 * 1000);
 */
 
 console.log('********************');

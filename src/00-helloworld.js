@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, host, () => {
-  console.log('HTTP Server is running...');
+  console.log(`HTTP Server is running on ${host}:${port}...`);
 });
 
 // process.exitCode = 0;
